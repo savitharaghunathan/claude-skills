@@ -29,7 +29,7 @@ In a Claude Code session, invoke any skill with its slash command:
 
 ```
 /commit-push
-/detailed-plan add OAuth2 support to the API
+/detailed-plan <describe what to plan>
 /explain-code
 /explain-project
 /new-branch feature/my-feature
