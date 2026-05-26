@@ -21,13 +21,13 @@ Show `git diff --cached --stat` so the user can see what will be committed. Then
 
 Draft a suggested commit message based on the staged changes and present it as the first option. The message should be concise, in imperative mood, and describe the "why" not just the "what".
 
-## 4. Credit Claude Code (optional)
+## 4. Credit Claude Code
 
-Ask the user if they want to credit Claude Code as a co-author using AskUserQuestion (yes/no). If yes, append the following trailer to the commit message:
+Ask the user how to credit Claude Code using AskUserQuestion. Options:
 
-```
-Co-Authored-By: Claude Code <noreply@anthropic.com>
-```
+- **Assisted-By (Recommended)** — `Assisted-By: Claude Code <noreply@anthropic.com>`
+- **Co-Authored-By** — `Co-Authored-By: Claude Code <noreply@anthropic.com>`
+- **No credit** — omit any Claude trailer
 
 ## 5. Commit with sign-off
 
@@ -37,12 +37,12 @@ Commit using sign-off. Always use a HEREDOC to pass the message:
 git commit -s -m "$(cat <<'EOF'
 <message>
 
-Co-Authored-By: Claude Code <noreply@anthropic.com>
+Assisted-By: Claude Code <noreply@anthropic.com>
 EOF
 )"
 ```
 
-If the user declined co-authorship credit, omit the `Co-Authored-By` line:
+If the user chose Co-Authored-By, use that trailer instead. If the user chose no credit, omit the trailer:
 
 ```
 git commit -s -m "<message>"
