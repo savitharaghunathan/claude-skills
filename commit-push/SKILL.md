@@ -21,13 +21,15 @@ Show `git diff --cached --stat` so the user can see what will be committed. Then
 
 Draft a suggested commit message based on the staged changes and present it as the first option. The message should be concise, in imperative mood, and describe the "why" not just the "what".
 
-## 4. Credit Claude Code
+## 4. Credit the assistant
 
-Ask the user how to credit Claude Code using AskUserQuestion. Options:
+Determine the name of the assistant/model actually running this session (e.g. "Claude Sonnet 5", "Codex", "Gemini") — do not assume it's Claude Code or Anthropic. Use that name and its provider's noreply address (e.g. `noreply@anthropic.com` for Claude models; the equivalent for other providers) when building the trailer below.
 
-- **Assisted-By (Recommended)** — `Assisted-By: Claude Code <noreply@anthropic.com>`
-- **Co-Authored-By** — `Co-Authored-By: Claude Code <noreply@anthropic.com>`
-- **No credit** — omit any Claude trailer
+Ask the user how to credit the assistant using AskUserQuestion. Options:
+
+- **Assisted-By (Recommended)** — `Assisted-By: <assistant name> <noreply@<provider domain>>`
+- **Co-Authored-By** — `Co-Authored-By: <assistant name> <noreply@<provider domain>>`
+- **No credit** — omit any trailer
 
 ## 5. Commit with sign-off
 
@@ -37,7 +39,7 @@ Commit using sign-off. Always use a HEREDOC to pass the message:
 git commit -s -m "$(cat <<'EOF'
 <message>
 
-Assisted-By: Claude Code <noreply@anthropic.com>
+Assisted-By: <assistant name> <noreply@<provider domain>>
 EOF
 )"
 ```
