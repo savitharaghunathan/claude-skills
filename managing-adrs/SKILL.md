@@ -31,17 +31,17 @@ An ADR captures the decision and the trade-off, never the implementation or desi
 
 | Status | Meaning |
 |---|---|
-| `pending` | Proposed, not yet agreed — still open for discussion |
-| `accepted` | The current, agreed decision |
-| `rejected` | Considered and explicitly turned down — recorded so it isn't re-proposed |
-| `updated` | Still the active decision, but amended — see [Updating an ADR](#updating-an-adr) |
-| `superseded` | Replaced outright by a newer ADR (see `superseded_by`) |
+| `Pending` | Proposed, not yet agreed — still open for discussion |
+| `Accepted` | The current, agreed decision |
+| `Rejected` | Considered and explicitly turned down — recorded so it isn't re-proposed |
+| `Updated` | Still the active decision, but amended — see [Updating an ADR](#updating-an-adr) |
+| `Superseded` | Replaced outright by a newer ADR (see `superseded_by`) |
 
 ## Before writing: get agreement
 
 An ADR *records* a decision — it doesn't make one. Before creating the file, restate the decision back to the user in a sentence or two ("So: formulas get parsed into an expression tree instead of run through eval() — recording that?") and confirm.
 
-If the decision is genuinely still open, it's fine to write the ADR now with `status: pending` rather than waiting — just don't mark it `accepted` until it actually is.
+If the decision is genuinely still open, it's fine to write the ADR now with `status: Pending` rather than waiting — just don't mark it `Accepted` until it actually is.
 
 ## Creating a new ADR
 
@@ -55,7 +55,7 @@ If the decision is genuinely still open, it's fine to write the ADR now with `st
 
 Add only when they add real value — most ADRs won't need any of these:
 
-- `status_note` — one line explaining a `rejected` or `superseded` status
+- `status_note` — one line explaining a `Rejected` or `Superseded` status
 - `superseded_by: "0007"` — set on the old ADR when a newer one replaces it
 - **Considered Options** — only when the rejected alternatives are worth remembering
 - **Consequences** — only when a non-obvious downstream effect needs calling out
@@ -65,8 +65,8 @@ Add only when they add real value — most ADRs won't need any of these:
 Three tiers, don't mix them up:
 
 1. **Typo or wording fix, meaning unchanged** — edit the file in place, no status change.
-2. **Material amendment, original decision still holds** — don't rewrite the body. Add a dated update note directly under the title, above the original paragraph, and set `status: updated`. See `references/eval-vs-parser.md` for a full before/after.
-3. **Full reversal or incompatible replacement** — write a new ADR for the new decision. Set the old ADR's `status: superseded` and `superseded_by: "NNNN"`. Never delete or rewrite the old body; it's the historical record of what was decided and why at the time.
+2. **Material amendment, original decision still holds** — don't rewrite the body. Add a dated update note directly under the title, above the original paragraph, and set `status: Updated`. See `references/eval-vs-parser.md` for a full before/after.
+3. **Full reversal or incompatible replacement** — write a new ADR for the new decision. Set the old ADR's `status: Superseded` and `superseded_by: "NNNN"`. Never delete or rewrite the old body; it's the historical record of what was decided and why at the time.
 
 In every case, update the status column for that ADR in `docs/adr/README.md`.
 
@@ -87,10 +87,10 @@ Before changing code in an area that looks deliberate, unusual, or hard to expla
 | Situation | Action |
 |---|---|
 | New hard-to-reverse, non-obvious, trade-off-driven decision | New ADR, next number, add to README |
-| Decision still being discussed | New ADR with `status: pending` |
-| Decision considered and turned down | New ADR (or update existing) with `status: rejected` |
+| Decision still being discussed | New ADR with `status: Pending` |
+| Decision considered and turned down | New ADR (or update existing) with `status: Rejected` |
 | Typo/wording fix | Edit the existing ADR in place, no status change |
-| Material amendment, decision still holds | Add dated update note under the title, `status: updated` |
-| Full reversal | New ADR + old one gets `status: superseded` / `superseded_by` |
+| Material amendment, decision still holds | Add dated update note under the title, `status: Updated` |
+| Full reversal | New ADR + old one gets `status: Superseded` / `superseded_by` |
 | Possible duplicate | Grep `docs/adr/` before creating |
 | About to touch a "weird" area of code | Grep `docs/adr/` before changing it |

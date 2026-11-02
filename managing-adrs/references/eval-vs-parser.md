@@ -1,5 +1,5 @@
 A worked example, following one ADR through its life and into the index files
-that reference it. It illustrates the template, the `updated` status, and the
+that reference it. It illustrates the template, the `Updated` status, and the
 amendment convention from SKILL.md — it isn't a real decision in this skill's
 own repo.
 
@@ -9,7 +9,7 @@ own repo.
 ---
 adr: "0001"
 title: "Formulas are parsed into an expression tree, not run through eval()"
-status: accepted
+status: Accepted
 date: "2026-11-02"
 author: "Grace Hopper"
 ---
@@ -27,13 +27,13 @@ have made disappear in one line.
 ## After a later amendment, same file
 
 The original decision still holds, so this isn't a new ADR — it's an update
-note added above the original paragraph, with `status` flipped to `updated`:
+note added above the original paragraph, with `status` flipped to `Updated`:
 
 ```markdown
 ---
 adr: "0001"
 title: "Formulas are parsed into an expression tree, not run through eval()"
-status: updated
+status: Updated
 date: "2026-11-02"
 author: "Grace Hopper"
 ---

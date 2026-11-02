@@ -1,7 +1,7 @@
 ---
 adr: "NNNN"
 title: "{Decision title}"
-status: pending | accepted | rejected | updated | superseded
+status: Pending | Accepted | Rejected | Updated | Superseded
 date: "YYYY-MM-DD"
 author: "{Author name}"
 ---

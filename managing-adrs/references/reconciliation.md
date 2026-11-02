@@ -7,7 +7,7 @@ the blank `assets/reconciliation.md` template.
 
 | ADR | Title | Status | Last reviewed | Review result |
 | --- | --- | --- | --- | --- |
-| [0001](./0001-parse-formulas-not-eval.md) | Formulas are parsed into an expression tree, not run through eval() | updated | 2027-01-15 | Still matches current implementation. |
+| [0001](./0001-parse-formulas-not-eval.md) | Formulas are parsed into an expression tree, not run through eval() | Updated | 2027-01-15 | Still matches current implementation. |
 ```
 
 This review happened independently of the amendment in `eval-vs-parser.md` —
