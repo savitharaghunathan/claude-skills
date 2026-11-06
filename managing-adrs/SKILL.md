@@ -7,9 +7,9 @@ description: Use when creating or updating an Architecture Decision Record (ADR)
 
 ADRs live in `docs/adr/`, one file per decision, sequentially numbered: `0001-slug.md`, `0002-slug.md`. Create the directory lazily — only when the first ADR is actually needed.
 
-An ADR is a single paragraph by default. The value is recording *that* a decision was made and *why*, not filling out sections.
-
 An ADR captures the decision and the trade-off, never the implementation or design. Leave schemas, API shapes, configs, and code structure to the code and any design docs — if a draft starts describing *how* something is built, cut it back to *what* was decided and *why*.
+
+Every ADR must have a **Context** section (why the decision was needed) and a **Decision** section (what was decided). Everything else is optional — ask the user if they want any of the optional sections included before writing.
 
 ## When to write one
 
@@ -53,12 +53,15 @@ If the decision is genuinely still open, it's fine to write the ADR now with `st
 
 ### Optional fields / sections
 
-Add only when they add real value — most ADRs won't need any of these:
+Ask the user if they want any of these before writing. Add only when they add real value:
 
-- `status_note` — one line explaining a `Rejected` or `Superseded` status
-- `superseded_by: "0007"` — set on the old ADR when a newer one replaces it
+- **In Scope / Out of Scope** — clarifies boundaries when the decision touches multiple areas
+- **Trade-offs** — when the downsides are non-obvious and worth calling out explicitly
+- **Related Decisions** — required when the ADR amends, extends, supersedes, or relates to existing ADRs; always check `docs/adr/` for related decisions before writing
 - **Considered Options** — only when the rejected alternatives are worth remembering
 - **Consequences** — only when a non-obvious downstream effect needs calling out
+- `status_note` — one line explaining a `Rejected` or `Superseded` status
+- `superseded_by: "0007"` — set on the old ADR when a newer one replaces it
 
 ## Updating an ADR
 
